@@ -1,0 +1,24 @@
+all:
+  children:
+    windows:
+      hosts:
+        DC:
+          ansible_host: 192.168.12.10
+          vagrant_box: jborean93/WindowsServer2019
+        WSUS-SERVER:
+          ansible_host: 192.168.12.11
+          vagrant_box: jborean93/WindowsServer2019
+        APP:
+          ansible_host: 192.168.12.12
+          vagrant_box: jborean93/WindowsServer2019
+      vars:
+        ansible_port: 5985
+        ansible_connection: psrp
+        ansible_psrp_auth: ntlm
+  vars:
+    ansible_user: vagrant
+    ansible_password: vagrant
+    domain_username: vagrant-domain
+    domain_password: VagrantPass1
+    domain_realm: wsus.env
+
